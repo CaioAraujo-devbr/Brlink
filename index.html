@@ -3,359 +3,697 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BrLink — Guia para Intercambistas Brasileiros nos EUA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
+  <title>BrLink — College Prep para Brasileiros nos EUA</title>
+  <meta name="description" content="Tudo que você precisa saber para entrar em uma universidade americana com bolsa. Feito por um brasileiro em Iowa.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DSKVVRVQN5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DSKVVRVQN5');
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --green: #00C896; --green-dark: #00A37A; --dark: #0D0D0D; --dark2: #1A1A1A; --dark3: #242424; --muted: #888; --white: #FFFFFF; --radius: 16px; --radius-sm: 10px; }
+    :root {
+      --green:    #00A86B;
+      --green-lt: #00C97F;
+      --gold:     #F5C842;
+      --navy:     #0A1628;
+      --navy-mid: #112240;
+      --navy-lt:  #1A3355;
+      --text:     #E8EDF5;
+      --muted:    #8A9BB5;
+      --border:   rgba(255,255,255,0.08);
+      --radius:   14px;
+      --serif:    'DM Serif Display', serif;
+      --sans:     'DM Sans', sans-serif;
+    }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--white); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,13,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; gap: 24px; }
-    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
-    .nav-logo span { color: var(--green); }
-    .nav-links { display: flex; gap: 24px; flex: 1; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .15s; }
-    .nav-links a:hover { color: var(--white); }
-    .lang-btn { background: rgba(255,255,255,0.08); color: var(--white); border: 1px solid rgba(255,255,255,0.15); border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all .15s; }
-    .lang-btn:hover { background: rgba(255,255,255,0.15); }
-    .nav-cta { background: var(--green); color: var(--dark); border: none; border-radius: 99px; padding: 8px 18px; font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; }
-    .hero { max-width: 1100px; margin: 0 auto; padding: 100px 24px 80px; position: relative; }
-    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse at center, rgba(0,200,150,0.12) 0%, transparent 70%); pointer-events: none; }
-    .hero-tag { display: inline-block; background: rgba(0,200,150,0.12); border: 1px solid rgba(0,200,150,0.3); color: var(--green); font-size: 13px; font-weight: 500; padding: 5px 14px; border-radius: 99px; margin-bottom: 28px; }
-    .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(48px, 8vw, 80px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; max-width: 700px; }
-    .hero-title em { font-style: normal; color: var(--green); }
-    .hero-sub { font-size: 18px; color: var(--muted); max-width: 520px; margin-bottom: 36px; line-height: 1.6; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 64px; }
-    .btn-primary { background: var(--green); color: var(--dark); border: none; border-radius: 99px; padding: 14px 28px; font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all .15s; }
-    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
-    .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); border-radius: 99px; padding: 14px 28px; font-size: 15px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; }
-    .hero-stats { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-    .stat { display: flex; flex-direction: column; gap: 2px; }
-    .stat-n { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; color: var(--white); line-height: 1; }
-    .stat-l { font-size: 12px; color: var(--muted); font-weight: 500; }
-    .stat-div { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
-    .section { padding: 96px 0; }
-    .section-alt { background: var(--dark2); }
-    .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); margin-bottom: 16px; }
-    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 48px; }
-    .section-sub { font-size: 16px; color: var(--muted); margin-top: -32px; margin-bottom: 40px; }
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .card { background: var(--dark3); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); padding: 28px; transition: border-color .2s, transform .2s; }
-    .card:hover { border-color: rgba(0,200,150,0.3); transform: translateY(-3px); }
-    .card-accent { border-color: rgba(0,200,150,0.25); background: rgba(0,200,150,0.05); }
-    .card-icon { font-size: 28px; margin-bottom: 14px; }
-    .card h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-    .card p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.65; }
-    .card-tip { margin-top: 16px; padding: 10px 14px; background: rgba(0,200,150,0.08); border-left: 2px solid var(--green); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 13px; color: var(--green); font-weight: 500; }
-    .buro-list { display: flex; flex-direction: column; }
-    .buro-item { display: flex; gap: 28px; padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: padding-left .2s; }
-    .buro-item:last-child { border-bottom: none; }
-    .buro-item:hover { padding-left: 8px; }
-    .buro-num { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--green); min-width: 28px; margin-top: 4px; }
-    .buro-content h3 { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .buro-content p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; }
-    .cultura-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
-    .cultura-card { border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); padding: 24px; transition: border-color .2s; }
-    .cultura-card:hover { border-color: rgba(255,255,255,0.2); }
-    .cultura-emoji { font-size: 24px; margin-bottom: 12px; }
-    .cultura-card h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .cultura-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
-    .checklist-container { max-width: 680px; }
-    .checklist-progress { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
-    .progress-bar-wrap { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; }
-    .progress-bar { height: 100%; background: var(--green); border-radius: 99px; width: 0%; transition: width .4s ease; }
-    .progress-text { font-size: 13px; color: var(--muted); white-space: nowrap; font-weight: 500; }
-    .checklist-group { margin-bottom: 32px; }
-    .checklist-group-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px; }
-    .check-item { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; font-size: 14px; color: rgba(255,255,255,0.8); user-select: none; }
-    .check-item:last-child { border-bottom: none; }
-    .check-item input[type="checkbox"] { display: none; }
-    .checkmark { width: 20px; height: 20px; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 6px; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all .15s; }
-    .check-item input:checked ~ .checkmark { background: var(--green); border-color: var(--green); }
-    .check-item input:checked ~ .checkmark::after { content: ''; display: block; width: 5px; height: 9px; border: 2px solid var(--dark); border-top: none; border-left: none; transform: rotate(45deg) translate(-1px, -1px); }
-    .check-item input:checked ~ span:last-child { color: var(--muted); text-decoration: line-through; }
-    .footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 24px; text-align: center; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-logo { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; }
-    .footer-logo span { color: var(--green); }
-    .footer p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
-    .footer-note { font-size: 12px; color: rgba(255,255,255,0.25); }
-    .footer-note a { color: var(--green); text-decoration: none; }
-    @media (max-width: 640px) { .nav-links { display: none; } .hero { padding: 64px 20px 56px; } .stat-div { display: none; } .section { padding: 64px 0; } .buro-item { gap: 16px; } }
-    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    [data-lang] { transition: opacity .2s; }
+    body { font-family: var(--sans); background: var(--navy); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: .5;
+    }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 5%; background: rgba(10,22,40,0.88); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--serif); font-size: 1.5rem; color: var(--green-lt); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .lang-toggle { background: var(--navy-lt); border: 1px solid var(--border); border-radius: 99px; display: flex; overflow: hidden; }
+    .lang-btn { padding: .38rem .85rem; font-size: .78rem; font-weight: 700; letter-spacing: .05em; cursor: pointer; transition: background .2s, color .2s; color: var(--muted); background: transparent; border: none; font-family: var(--sans); }
+    .lang-btn.active { background: var(--green); color: #fff; }
+    .nav-cta { background: var(--green); color: #fff; padding: .5rem 1.25rem; border-radius: 99px; font-size: .85rem; font-weight: 600; text-decoration: none; transition: background .2s, transform .15s; }
+    .nav-cta:hover { background: var(--green-lt); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* HERO */
+    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 120px 10% 80px; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: -120px; right: -120px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(0,168,107,.18) 0%, transparent 70%); pointer-events: none; }
+    .hero-glow2 { position: absolute; bottom: -200px; left: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(245,200,66,.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(0,168,107,.15); border: 1px solid rgba(0,168,107,.3); color: var(--green-lt); padding: .4rem 1rem; border-radius: 99px; font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1.5rem; animation: fadeUp .6s ease both; }
+    h1 { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: 1.1; max-width: 800px; animation: fadeUp .7s .1s ease both; }
+    h1 em { font-style: italic; color: var(--green-lt); }
+    .hero-sub { margin-top: 1.5rem; max-width: 520px; color: var(--muted); font-size: 1.05rem; line-height: 1.7; animation: fadeUp .7s .2s ease both; }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; animation: fadeUp .7s .3s ease both; }
+    .btn-primary { background: var(--green); color: #fff; padding: .85rem 2rem; border-radius: 99px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-primary:hover { background: var(--green-lt); transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,168,107,.35); }
+    .btn-secondary { background: transparent; color: var(--text); padding: .85rem 2rem; border-radius: 99px; font-size: 1rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border); transition: border-color .2s, background .2s; }
+    .btn-secondary:hover { border-color: var(--muted); background: rgba(255,255,255,.04); }
+    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; animation: fadeUp .7s .4s ease both; }
+    .stat-item { display: flex; flex-direction: column; gap: .2rem; }
+    .stat-num { font-family: var(--serif); font-size: 2.2rem; color: var(--green-lt); line-height: 1; }
+    .stat-label { font-size: .8rem; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+
+    /* SECTIONS */
+    section { padding: 90px 10%; position: relative; }
+    .section-label { font-size: .75rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--green); margin-bottom: .8rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; margin-bottom: .9rem; }
+    .section-sub { color: var(--muted); font-size: .95rem; max-width: 520px; line-height: 1.7; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* CALCULATOR */
+    #calculator { background: var(--navy-mid); }
+    .calc-wrapper { margin-top: 3rem; background: var(--navy-lt); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; max-width: 680px; }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .calc-group { display: flex; flex-direction: column; gap: .45rem; }
+    .calc-group label { font-size: .78rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+    .calc-group input, .calc-group select { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 8px; color: var(--text); padding: .75rem 1rem; font-family: var(--sans); font-size: .95rem; transition: border-color .2s; appearance: none; }
+    .calc-group input:focus, .calc-group select:focus { outline: none; border-color: var(--green); }
+    .calc-btn { background: var(--green); color: #fff; border: none; padding: .9rem 2rem; border-radius: 99px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background .2s, transform .15s; font-family: var(--sans); }
+    .calc-btn:hover { background: var(--green-lt); transform: translateY(-1px); }
+    .calc-result { display: none; margin-top: 2rem; background: var(--navy-mid); border-radius: var(--radius); padding: 2rem; border-left: 4px solid var(--green); }
+    .calc-result.show { display: block; }
+    .result-score { font-family: var(--serif); font-size: 3rem; color: var(--green-lt); }
+    .result-label { color: var(--muted); font-size: .9rem; margin-bottom: 1rem; }
+    .result-schools h4 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: .75rem; }
+    .school-chip { display: inline-block; margin: .2rem; padding: .28rem .8rem; border-radius: 99px; font-size: .78rem; font-weight: 600; }
+    .chip-reach  { background: rgba(239,68,68,.15);  color: #f87171; border: 1px solid rgba(239,68,68,.25); }
+    .chip-match  { background: rgba(245,200,66,.12); color: var(--gold); border: 1px solid rgba(245,200,66,.25); }
+    .chip-safety { background: rgba(0,168,107,.12);  color: var(--green-lt); border: 1px solid rgba(0,168,107,.25); }
+    .result-tip  { margin-top: 1.2rem; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+
+    /* BOLSAS */
+    .bolsa-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
+    .bolsa-item { background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 2rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem; transition: border-color .25s, transform .2s; }
+    .bolsa-item:hover { border-color: rgba(0,168,107,.3); transform: translateX(4px); }
+    .bolsa-name { font-family: var(--serif); font-size: 1.1rem; margin-bottom: .3rem; }
+    .bolsa-desc { color: var(--muted); font-size: .88rem; line-height: 1.55; }
+    .bolsa-badge { background: var(--gold); color: var(--navy); padding: .3rem .9rem; border-radius: 99px; font-size: .75rem; font-weight: 700; white-space: nowrap; }
+    .bolsa-deadline { color: var(--muted); font-size: .78rem; margin-top: .4rem; }
+
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; margin-top: 3rem; }
+    .step { display: grid; grid-template-columns: 55px 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--border); }
+    .step:last-child { border-bottom: none; }
+    .step-num { font-family: var(--serif); font-size: 2.2rem; color: var(--navy-lt); line-height: 1; transition: color .3s; }
+    .step:hover .step-num { color: var(--green); }
+    .step-content h3 { font-family: var(--serif); font-size: 1.2rem; margin-bottom: .4rem; }
+    .step-content p { color: var(--muted); font-size: .9rem; line-height: 1.65; }
+    .step-tip { margin-top: .7rem; padding: .65rem .9rem; background: rgba(0,168,107,.08); border-left: 3px solid var(--green); border-radius: 0 8px 8px 0; font-size: .84rem; color: var(--green-lt); }
+
+    /* DOCS */
+    .doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .doc-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: border-color .2s; }
+    .doc-card:hover { border-color: rgba(245,200,66,.3); }
+    .doc-num { font-family: var(--serif); font-size: 1.8rem; color: var(--gold); opacity: .35; margin-bottom: .4rem; line-height: 1; }
+    .doc-card h3 { font-size: .95rem; font-weight: 600; margin-bottom: .4rem; }
+    .doc-card p { color: var(--muted); font-size: .84rem; line-height: 1.6; }
+
+    /* CULTURA */
+    .cultura-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+    .cultura-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: transform .2s, border-color .2s; }
+    .cultura-card:hover { transform: translateY(-3px); border-color: rgba(0,168,107,.25); }
+    .cultura-emoji { font-size: 1.5rem; margin-bottom: .65rem; }
+    .cultura-card h3 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .4rem; }
+    .cultura-card p { color: var(--muted); font-size: .86rem; line-height: 1.6; }
+
+    /* CHECKLIST */
+    #checklist { background: var(--navy-mid); }
+    .checklist-wrapper { max-width: 700px; margin-top: 3rem; }
+    .progress-bar { background: var(--navy-lt); border-radius: 99px; height: 7px; overflow: hidden; margin-bottom: .45rem; }
+    .progress-fill { background: linear-gradient(90deg, var(--green), var(--green-lt)); height: 100%; border-radius: 99px; transition: width .4s ease; width: 0%; }
+    .progress-label { color: var(--muted); font-size: .84rem; margin-bottom: 2rem; }
+    .check-section { margin-bottom: 1.75rem; }
+    .check-section h3 { font-size: .73rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+    .check-item { display: flex; align-items: center; gap: .8rem; padding: .65rem .9rem; border-radius: 10px; cursor: pointer; transition: background .15s; user-select: none; }
+    .check-item:hover { background: rgba(255,255,255,.04); }
+    .check-box { width: 19px; height: 19px; border-radius: 5px; border: 2px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background .2s, border-color .2s; }
+    .check-item.done .check-box { background: var(--green); border-color: var(--green); }
+    .check-item.done .check-box::after { content: '✓'; color: #fff; font-size: .75rem; font-weight: 700; }
+    .check-item.done .check-text { color: var(--muted); text-decoration: line-through; }
+    .check-text { font-size: .9rem; }
+
+    /* CONTACT */
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+    .contact-info h3 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: .9rem; }
+    .contact-info p { color: var(--muted); font-size: .92rem; line-height: 1.7; }
+    .contact-detail { display: flex; align-items: center; gap: .7rem; margin-top: 1.25rem; color: var(--muted); font-size: .88rem; }
+    .contact-detail a { color: var(--green-lt); text-decoration: none; }
+    .contact-detail a:hover { text-decoration: underline; }
+    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .45rem; }
+    .form-group label { font-size: .76rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+    .form-group input, .form-group textarea, .form-group select { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 10px; color: var(--text); padding: .8rem 1rem; font-family: var(--sans); font-size: .93rem; transition: border-color .2s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--green); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select { appearance: none; }
+    .form-submit { background: var(--green); color: #fff; border: none; padding: .85rem 2rem; border-radius: 99px; font-size: .95rem; font-weight: 600; cursor: pointer; transition: background .2s, transform .15s; font-family: var(--sans); align-self: flex-start; }
+    .form-submit:hover { background: var(--green-lt); transform: translateY(-1px); }
+    .form-success { display: none; text-align: center; padding: 2rem; background: rgba(0,168,107,.1); border: 1px solid rgba(0,168,107,.25); border-radius: var(--radius); color: var(--green-lt); }
+    .form-success.show { display: block; }
+    .form-success .check-icon { font-size: 2.2rem; margin-bottom: .6rem; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 2.5rem 10%; border-top: 1px solid var(--border); color: var(--muted); font-size: .84rem; }
+    footer a { color: var(--green-lt); text-decoration: none; }
+    footer strong { color: var(--text); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--navy-mid); padding: 1.5rem 5%; gap: 1rem; border-bottom: 1px solid var(--border); }
+      .hamburger { display: flex; }
+      section { padding: 65px 5%; }
+      #hero { padding: 100px 5% 60px; }
+      .calc-row { grid-template-columns: 1fr; }
+      .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-stats { gap: 1.75rem; }
+      .bolsa-item { grid-template-columns: 1fr; }
+      .bolsa-badge { align-self: flex-start; }
+      .nav-right { gap: .6rem; }
+      .nav-cta { display: none; }
+    }
   </style>
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">br<span>link</span></a>
-      <div class="nav-links">
-        <a href="#escola" data-pt="Escola" data-en="School">Escola</a>
-        <a href="#burocracia" data-pt="Burocracia" data-en="Documents">Burocracia</a>
-        <a href="#cultura" data-pt="Cultura" data-en="Culture">Cultura</a>
-        <a href="#checklist" data-pt="Checklist" data-en="Checklist">Checklist</a>
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">BrLink</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#escola"      data-pt="Escola"      data-en="School">Escola</a></li>
+    <li><a href="#bolsas"      data-pt="Bolsas"      data-en="Scholarships">Bolsas</a></li>
+    <li><a href="#burocracia"  data-pt="Burocracia"  data-en="Paperwork">Burocracia</a></li>
+    <li><a href="#cultura"     data-pt="Cultura"     data-en="Culture">Cultura</a></li>
+    <li><a href="#checklist"   data-pt="Checklist"   data-en="Checklist">Checklist</a></li>
+    <li><a href="#contato"     data-pt="Contato"     data-en="Contact">Contato</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn"        onclick="setLang('en')">EN</button>
+    </div>
+    <a class="nav-cta" href="#calculator" data-pt="Calcular chances →" data-en="Check my odds →">Calcular chances →</a>
+  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <span class="hero-badge" data-pt="🇧🇷 Feito por um brasileiro em Iowa" data-en="🇧🇷 Made by a Brazilian student in Iowa">🇧🇷 Feito por um brasileiro em Iowa</span>
+  <h1 data-pt="Sua vaga em uma<br><em>universidade americana</em><br>começa aqui." data-en="Your spot at an<br><em>American university</em><br>starts here.">Sua vaga em uma<br><em>universidade americana</em><br>começa aqui.</h1>
+  <p class="hero-sub" data-pt="Tudo que você precisa para conseguir bolsa 100% em uma uni americana — do GPA até o Common App. Sem enrolação." data-en="Everything you need to land a full scholarship at a U.S. university — from GPA to the Common App. No fluff.">Tudo que você precisa para conseguir bolsa 100% em uma uni americana — do GPA até o Common App. Sem enrolação.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#calculator" data-pt="Calcular minhas chances" data-en="Check my odds">Calcular minhas chances</a>
+    <a class="btn-secondary" href="#escola" data-pt="Ver o guia" data-en="Read the guide">Ver o guia</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label" data-pt="Universidades mapeadas" data-en="Universities mapped">Universidades mapeadas</span></div>
+    <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label" data-pt="Bolsas documentadas" data-en="Scholarships documented">Bolsas documentadas</span></div>
+    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label" data-pt="Gratuito" data-en="Free forever">Gratuito</span></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CALCULATOR -->
+<section id="calculator">
+  <div class="section-label" data-pt="Ferramenta" data-en="Tool">Ferramenta</div>
+  <h2 class="section-title" data-pt="Calculadora de chances" data-en="Odds Calculator">Calculadora de chances</h2>
+  <p class="section-sub" data-pt="Coloca seu perfil e vê o quão competitivo você tá para entrar com bolsa." data-en="Enter your profile and see how competitive you are for a scholarship admission.">Coloca seu perfil e vê o quão competitivo você tá para entrar com bolsa.</p>
+  <div class="calc-wrapper reveal">
+    <div class="calc-row">
+      <div class="calc-group">
+        <label>GPA (0.0 – 4.0)</label>
+        <input type="number" id="gpa" min="0" max="4" step="0.01" placeholder="Ex: 3.8">
       </div>
-      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
-      <button class="nav-cta" onclick="document.getElementById('checklist').scrollIntoView({behavior:'smooth'})" data-pt="Meu progresso" data-en="My progress">Meu progresso</button>
-    </div>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-tag" data-pt="feito por um brasileiro em Iowa" data-en="made by a Brazilian in Iowa">feito por um brasileiro em Iowa</div>
-    <h1 class="hero-title">
-      <span data-pt="Sobreviver nos EUA" data-en="Surviving in the US">Sobreviver nos EUA</span><br/>
-      <em data-pt="tem manual." data-en="has a guide.">tem manual.</em>
-    </h1>
-    <p class="hero-sub" data-pt="Tudo que eu queria ter sabido quando cheguei — adaptação, escola americana, documentos e cultura. Sem enrolação." data-en="Everything I wish I knew when I arrived — cultural adaptation, American school system, documents, and more. No fluff.">Tudo que eu queria ter sabido quando cheguei — adaptação, escola americana, documentos e cultura. Sem enrolação.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="document.getElementById('escola').scrollIntoView({behavior:'smooth'})" data-pt="Começar o guia" data-en="Start the guide">Começar o guia</button>
-      <button class="btn-ghost" onclick="document.getElementById('checklist').scrollIntoView({behavior:'smooth'})" data-pt="Ver meu checklist" data-en="View my checklist">Ver meu checklist</button>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-n">3</span><span class="stat-l" data-pt="problemas reais" data-en="real problems">problemas reais</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-n">47</span><span class="stat-l" data-pt="dicas práticas" data-en="practical tips">dicas práticas</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-n">0</span><span class="stat-l" data-pt="enrolação" data-en="fluff">enrolação</span></div>
-    </div>
-  </section>
-
-  <section id="escola" class="section">
-    <div class="section-inner">
-      <div class="section-label" data-pt="Sistema escolar americano" data-en="American school system">Sistema escolar americano</div>
-      <h2 class="section-title">
-        <span data-pt="A escola aqui é diferente." data-en="School here is different.">A escola aqui é diferente.</span><br/>
-        <span data-pt="Muito diferente." data-en="Very different.">Muito diferente.</span>
-      </h2>
-      <div class="cards-grid">
-        <div class="card card-accent">
-          <div class="card-icon">📊</div>
-          <h3 data-pt="O que é GPA?" data-en="What is GPA?">O que é GPA?</h3>
-          <p data-pt="GPA (Grade Point Average) é sua média geral de 0 a 4.0. Um A vale 4.0, B vale 3.0, C vale 2.0. Pra faculdade, você precisa de pelo menos 3.5 pra ser competitivo." data-en="GPA (Grade Point Average) is your overall average from 0 to 4.0. An A is worth 4.0, B is 3.0, C is 2.0. For college, you need at least 3.5 to be competitive.">GPA (Grade Point Average) é sua média geral de 0 a 4.0. Um A vale 4.0, B vale 3.0, C vale 2.0. Pra faculdade, você precisa de pelo menos 3.5 pra ser competitivo.</p>
-          <div class="card-tip" data-pt="Dica: Converse com seu counselor toda semana. Eles existem pra te ajudar." data-en="Tip: Talk to your school counselor every week. They exist to help you.">Dica: Converse com seu counselor toda semana. Eles existem pra te ajudar.</div>
-        </div>
-        <div class="card">
-          <div class="card-icon">🏆</div>
-          <h3 data-pt="Extracurriculares valem muito" data-en="Extracurriculars matter a lot">Extracurriculares valem muito</h3>
-          <p data-pt="Nos EUA, faculdades avaliam o que você faz fora de sala. Esportes, clubes, voluntariado — tudo conta. Quanto mais cedo você entrar, mais tempo tem pra mostrar evolução e liderança." data-en="In the US, colleges evaluate what you do outside the classroom. Sports, clubs, volunteering — everything counts. The earlier you start, the more time you have to show growth and leadership.">Nos EUA, faculdades avaliam o que você faz fora de sala. Esportes, clubes, voluntariado — tudo conta. Quanto mais cedo você entrar, mais tempo tem pra mostrar evolução e liderança.</p>
-          <div class="card-tip" data-pt="Dica: Tente ser capitão ou presidente de pelo menos um clube." data-en="Tip: Try to become captain or president of at least one club.">Dica: Tente ser capitão ou presidente de pelo menos um clube.</div>
-        </div>
-        <div class="card">
-          <div class="card-icon">📝</div>
-          <h3 data-pt="SAT — o que é e por que importa" data-en="SAT — what it is and why it matters">SAT — o que é e por que importa</h3>
-          <p data-pt="O SAT vai de 400 a 1600. Para bolsas competitivas, mira em 1450+. Você pode fazer quantas vezes quiser e as faculdades geralmente aceitam a melhor nota." data-en="The SAT ranges from 400 to 1600. For competitive scholarships, aim for 1450+. You can take it as many times as you want and colleges generally take your best score.">O SAT vai de 400 a 1600. Para bolsas competitivas, mira em 1450+. Você pode fazer quantas vezes quiser e as faculdades geralmente aceitam a melhor nota.</p>
-          <div class="card-tip" data-pt="Dica: Khan Academy tem prep gratuito e personalizado pro SAT." data-en="Tip: Khan Academy has free, personalized SAT prep.">Dica: Khan Academy tem prep gratuito e personalizado pro SAT.</div>
-        </div>
-        <div class="card">
-          <div class="card-icon">🎭</div>
-          <h3 data-pt="AP Classes — vale a pena?" data-en="AP Classes — are they worth it?">AP Classes — vale a pena?</h3>
-          <p data-pt="AP são aulas avançadas com prova no final do ano. Se você tirar 4 ou 5, muitas faculdades te dão crédito universitário. Faz pelo menos 2 ou 3." data-en="AP classes are advanced courses with an exam at the end of the year. If you score 4 or 5, many colleges give you college credit. Take at least 2 or 3.">AP são aulas avançadas com prova no final do ano. Se você tirar 4 ou 5, muitas faculdades te dão crédito universitário. Faz pelo menos 2 ou 3.</p>
-          <div class="card-tip" data-pt="Dica: AP CS e AP Statistics são ouro pra quem quer CS ou Business." data-en="Tip: AP CS and AP Statistics are gold for CS or Business applicants.">Dica: AP CS e AP Statistics são ouro pra quem quer CS ou Business.</div>
-        </div>
+      <div class="calc-group">
+        <label>SAT (400 – 1600)</label>
+        <input type="number" id="sat" min="400" max="1600" step="10" placeholder="Ex: 1450">
       </div>
     </div>
-  </section>
-
-  <section id="burocracia" class="section section-alt">
-    <div class="section-inner">
-      <div class="section-label" data-pt="Documentos e burocracia" data-en="Documents and paperwork">Documentos e burocracia</div>
-      <h2 class="section-title">
-        <span data-pt="Papelada chata," data-en="Boring paperwork,">Papelada chata,</span><br/>
-        <span data-pt="mas necessária." data-en="but necessary.">mas necessária.</span>
-      </h2>
-      <div class="buro-list">
-        <div class="buro-item">
-          <div class="buro-num">01</div>
-          <div class="buro-content">
-            <h3 data-pt="Visto J-1 ou F-1" data-en="J-1 or F-1 Visa">Visto J-1 ou F-1</h3>
-            <p data-pt="A maioria dos intercambistas usa J-1. Guarda seu DS-2019 em lugar seguro — você vai precisar pra qualquer coisa oficial." data-en="Most exchange students use J-1. Keep your DS-2019 somewhere safe — you'll need it for anything official.">A maioria dos intercambistas usa J-1. Guarda seu DS-2019 em lugar seguro — você vai precisar pra qualquer coisa oficial.</p>
-          </div>
-        </div>
-        <div class="buro-item">
-          <div class="buro-num">02</div>
-          <div class="buro-content">
-            <h3 data-pt="Social Security Number (SSN)" data-en="Social Security Number (SSN)">Social Security Number (SSN)</h3>
-            <p data-pt="Se você vai trabalhar (com autorização), precisa de um SSN. Consulte seu coordinator — não tente fazer isso sozinho." data-en="If you plan to work (with authorization), you need an SSN. Ask your coordinator — don't try to do this alone.">Se você vai trabalhar (com autorização), precisa de um SSN. Consulte seu coordinator — não tente fazer isso sozinho.</p>
-          </div>
-        </div>
-        <div class="buro-item">
-          <div class="buro-num">03</div>
-          <div class="buro-content">
-            <h3 data-pt="Conta bancária" data-en="Bank account">Conta bancária</h3>
-            <p data-pt="Abra uma conta assim que possível. Você vai precisar de passaporte + endereço americano + às vezes uma carta da escola." data-en="Open a bank account as soon as possible. You'll need a passport + US address + sometimes a letter from your school.">Abra uma conta assim que possível. Você vai precisar de passaporte + endereço americano + às vezes uma carta da escola.</p>
-          </div>
-        </div>
-        <div class="buro-item">
-          <div class="buro-num">04</div>
-          <div class="buro-content">
-            <h3 data-pt="Plano de saúde" data-en="Health insurance">Plano de saúde</h3>
-            <p data-pt="Saúde nos EUA é cara. Confirme que você tem seguro saúde válido. Urgent care é mais barato que emergency room." data-en="Healthcare in the US is expensive. Confirm you have valid health insurance. Urgent care is cheaper than the emergency room.">Saúde nos EUA é cara. Confirme que você tem seguro saúde válido. Urgent care é mais barato que emergency room.</p>
-          </div>
-        </div>
-        <div class="buro-item">
-          <div class="buro-num">05</div>
-          <div class="buro-content">
-            <h3 data-pt="Carteira de motorista / State ID" data-en="Driver's license / State ID">Carteira de motorista / State ID</h3>
-            <p data-pt="Se você tem 16+ anos, pode tirar carteira em Iowa. Vai ao DMV com passaporte, visto e comprovante de endereço." data-en="If you're 16+, you can get a driver's license in Iowa. Go to the DMV with your passport, visa, and proof of address.">Se você tem 16+ anos, pode tirar carteira em Iowa. Vai ao DMV com passaporte, visto e comprovante de endereço.</p>
-          </div>
-        </div>
+    <div class="calc-row">
+      <div class="calc-group">
+        <label data-pt="Extracurriculars" data-en="Extracurriculars">Extracurriculars</label>
+        <select id="extra">
+          <option value=""  data-pt="Selecione..." data-en="Select...">Selecione...</option>
+          <option value="1" data-pt="1–2 atividades básicas" data-en="1–2 basic activities">1–2 atividades básicas</option>
+          <option value="2" data-pt="3–4 atividades variadas" data-en="3–4 varied activities">3–4 atividades variadas</option>
+          <option value="3" data-pt="Liderança em times/clubes" data-en="Leadership in teams/clubs">Liderança em times/clubes</option>
+          <option value="4" data-pt="Premiações / impacto real" data-en="Awards / real impact">Premiações / impacto real</option>
+        </select>
+      </div>
+      <div class="calc-group">
+        <label data-pt="Escola alvo" data-en="Target school">Escola alvo</label>
+        <select id="target">
+          <option value=""       data-pt="Selecione..." data-en="Select...">Selecione...</option>
+          <option value="t20"    data-pt="Top 20 (WashU, Rice, Vanderbilt…)" data-en="Top 20 (WashU, Rice, Vanderbilt…)">Top 20 (WashU, Rice, Vanderbilt…)</option>
+          <option value="t50"    data-pt="Top 21–50 (Tulane, Rochester…)"    data-en="Top 21–50 (Tulane, Rochester…)">Top 21–50 (Tulane, Rochester…)</option>
+          <option value="liberal" data-pt="Liberal Arts (Grinnell, Denison…)" data-en="Liberal Arts (Grinnell, Denison…)">Liberal Arts (Grinnell, Denison…)</option>
+        </select>
       </div>
     </div>
-  </section>
-
-  <section id="cultura" class="section">
-    <div class="section-inner">
-      <div class="section-label" data-pt="Adaptação cultural" data-en="Cultural adaptation">Adaptação cultural</div>
-      <h2 class="section-title">
-        <span data-pt="Choque cultural é real." data-en="Culture shock is real.">Choque cultural é real.</span><br/>
-        <span data-pt="E tá tudo bem." data-en="And that's okay.">E tá tudo bem.</span>
-      </h2>
-      <div class="cultura-grid">
-        <div class="cultura-card">
-          <div class="cultura-emoji">🗣️</div>
-          <h3 data-pt="Inglês travou? Normal." data-en="English froze up? Normal.">Inglês travou? Normal.</h3>
-          <p data-pt="Os primeiros meses seu inglês vai parecer pior. Continue falando mesmo errando — é a única forma de melhorar." data-en="The first few months your English may feel worse. Keep speaking even when you make mistakes — it's the only way to improve.">Os primeiros meses seu inglês vai parecer pior. Continue falando mesmo errando — é a única forma de melhorar.</p>
-        </div>
-        <div class="cultura-card">
-          <div class="cultura-emoji">🤝</div>
-          <h3 data-pt='"How are you?" não é pergunta real' data-en='"How are you?" is not a real question'>"How are you?" não é pergunta real</h3>
-          <p data-pt='A resposta esperada é "good, you?". É só uma saudação — não uma pergunta de verdade.' data-en='The expected answer is "good, you?" — it is just a greeting, not a real question.'>A resposta esperada é "good, you?". É só uma saudação — não uma pergunta de verdade.</p>
-        </div>
-        <div class="cultura-card">
-          <div class="cultura-emoji">🍕</div>
-          <h3 data-pt="Comida e saudade" data-en="Food and homesickness">Comida e saudade</h3>
-          <p data-pt="Em cidades pequenas como Montezuma, busca grupos de brasileiros no Facebook — alguém sempre tem uma dica de mercado latino." data-en="In small towns like Montezuma, look for Brazilian groups on Facebook — someone always knows where to find Latin grocery stores.">Em cidades pequenas como Montezuma, busca grupos de brasileiros no Facebook — alguém sempre tem uma dica de mercado latino.</p>
-        </div>
-        <div class="cultura-card">
-          <div class="cultura-emoji">⏰</div>
-          <h3 data-pt="Pontualidade é levada a sério" data-en="Punctuality is taken seriously">Pontualidade é levada a sério</h3>
-          <p data-pt="Se o treino começa às 15h, você chega às 14h50. Isso impacta sua reputação diretamente." data-en="If practice starts at 3pm, you arrive at 2:50pm. This directly impacts your reputation.">Se o treino começa às 15h, você chega às 14h50. Isso impacta sua reputação diretamente.</p>
-        </div>
-        <div class="cultura-card">
-          <div class="cultura-emoji">📱</div>
-          <h3 data-pt="Fique conectado com o Brasil" data-en="Stay connected with Brazil">Fique conectado com o Brasil</h3>
-          <p data-pt="Manter contato com família é importante. Mas não deixe virar fuga — conecte-se também com quem está ao seu redor." data-en="Staying in touch with family is important. But don't let it become an escape — connect with the people around you too.">Manter contato com família é importante. Mas não deixe virar fuga — conecte-se também com quem está ao seu redor.</p>
-        </div>
-        <div class="cultura-card">
-          <div class="cultura-emoji">🌟</div>
-          <h3 data-pt="Seu sotaque é um superpoder" data-en="Your accent is a superpower">Seu sotaque é um superpoder</h3>
-          <p data-pt="Americanos acham sotaque brasileiro fascinante. Ser diferente aqui é vantagem, não desvantagem." data-en="Americans find Brazilian accents fascinating. Being different here is an advantage, not a disadvantage.">Americanos acham sotaque brasileiro fascinante. Ser diferente aqui é vantagem, não desvantagem.</p>
-        </div>
+    <div class="calc-row">
+      <div class="calc-group">
+        <label data-pt="Projeto pessoal / startup?" data-en="Personal project / startup?">Projeto pessoal / startup?</label>
+        <select id="projeto">
+          <option value="0" data-pt="Não" data-en="No">Não</option>
+          <option value="1" data-pt="Em desenvolvimento" data-en="In progress">Em desenvolvimento</option>
+          <option value="2" data-pt="Sim, com usuários reais" data-en="Yes, with real users">Sim, com usuários reais</option>
+        </select>
+      </div>
+      <div class="calc-group">
+        <label data-pt="Nível do inglês" data-en="English level">Nível do inglês</label>
+        <select id="english">
+          <option value="1" data-pt="Básico"        data-en="Basic">Básico</option>
+          <option value="2" data-pt="Intermediário" data-en="Intermediate">Intermediário</option>
+          <option value="3" data-pt="Avançado"      data-en="Advanced">Avançado</option>
+          <option value="4" data-pt="Fluente"       data-en="Fluent">Fluente</option>
+        </select>
       </div>
     </div>
-  </section>
-
-  <section id="checklist" class="section section-alt">
-    <div class="section-inner">
-      <div class="section-label" data-pt="Seu progresso" data-en="Your progress">Seu progresso</div>
-      <h2 class="section-title">
-        <span data-pt="Checklist de" data-en="Survival">Checklist de</span><br/>
-        <span data-pt="sobrevivência." data-en="checklist.">sobrevivência.</span>
-      </h2>
-      <p class="section-sub" data-pt="Marca o que você já fez. Seu progresso fica salvo no navegador." data-en="Check what you've already done. Your progress is saved in your browser.">Marca o que você já fez. Seu progresso fica salvo no navegador.</p>
-      <div class="checklist-container">
-        <div class="checklist-progress">
-          <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
-          <span class="progress-text" id="progressText">0 de 15 concluídos</span>
-        </div>
-        <div class="checklist-group">
-          <div class="checklist-group-title" data-pt="Primeiros dias" data-en="First days">Primeiros dias</div>
-          <label class="check-item"><input type="checkbox" data-id="c1"/><span class="checkmark"></span><span data-pt="Guardei meu passaporte e DS-2019 em lugar seguro" data-en="Stored my passport and DS-2019 somewhere safe">Guardei meu passaporte e DS-2019 em lugar seguro</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c2"/><span class="checkmark"></span><span data-pt="Confirmei que meu seguro saúde está ativo" data-en="Confirmed my health insurance is active">Confirmei que meu seguro saúde está ativo</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c3"/><span class="checkmark"></span><span data-pt="Abri uma conta bancária americana" data-en="Opened a US bank account">Abri uma conta bancária americana</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c4"/><span class="checkmark"></span><span data-pt="Instalei WhatsApp, iMessage e Snapchat" data-en="Installed WhatsApp, iMessage and Snapchat">Instalei WhatsApp, iMessage e Snapchat</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c5"/><span class="checkmark"></span><span data-pt="Entrei em contato com meu coordinator" data-en="Contacted my exchange coordinator">Entrei em contato com meu coordinator</span></label>
-        </div>
-        <div class="checklist-group">
-          <div class="checklist-group-title" data-pt="Escola" data-en="School">Escola</div>
-          <label class="check-item"><input type="checkbox" data-id="c6"/><span class="checkmark"></span><span data-pt="Fui visitar o counselor escolar" data-en="Visited my school counselor">Fui visitar o counselor escolar</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c7"/><span class="checkmark"></span><span data-pt="Entendi como funciona o GPA da minha escola" data-en="Understood how my school's GPA system works">Entendi como funciona o GPA da minha escola</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c8"/><span class="checkmark"></span><span data-pt="Me inscrevi em pelo menos um extracurricular" data-en="Joined at least one extracurricular activity">Me inscrevi em pelo menos um extracurricular</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c9"/><span class="checkmark"></span><span data-pt="Criei conta no Khan Academy para prep do SAT" data-en="Created a Khan Academy account for SAT prep">Criei conta no Khan Academy para prep do SAT</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c10"/><span class="checkmark"></span><span data-pt="Sei quando são as próximas datas do SAT/PSAT" data-en="I know the upcoming SAT/PSAT dates">Sei quando são as próximas datas do SAT/PSAT</span></label>
-        </div>
-        <div class="checklist-group">
-          <div class="checklist-group-title" data-pt="Adaptação" data-en="Adaptation">Adaptação</div>
-          <label class="check-item"><input type="checkbox" data-id="c11"/><span class="checkmark"></span><span data-pt="Apresentei pra pelo menos 3 colegas de forma genuína" data-en="Genuinely introduced myself to at least 3 classmates">Apresentei pra pelo menos 3 colegas de forma genuína</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c12"/><span class="checkmark"></span><span data-pt="Fui a um evento escolar (jogo, festa, clube)" data-en="Attended a school event (game, party, club)">Fui a um evento escolar (jogo, festa, clube)</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c13"/><span class="checkmark"></span><span data-pt="Entrei em algum grupo de brasileiros na cidade" data-en="Joined a Brazilian or Latino group in the city">Entrei em algum grupo de brasileiros na cidade</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c14"/><span class="checkmark"></span><span data-pt="Liguei pra família pelo menos uma vez essa semana" data-en="Called my family at least once this week">Liguei pra família pelo menos uma vez essa semana</span></label>
-          <label class="check-item"><input type="checkbox" data-id="c15"/><span class="checkmark"></span><span data-pt="Fiz algo que me deixou desconfortável (e cresci com isso)" data-en="Did something that made me uncomfortable (and grew from it)">Fiz algo que me deixou desconfortável (e cresci com isso)</span></label>
-        </div>
+    <button class="calc-btn" onclick="calcular()" data-pt="Calcular meu perfil →" data-en="Calculate my profile →">Calcular meu perfil →</button>
+    <div class="calc-result" id="calcResult">
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-label" id="resultLabel"></div>
+      <div class="result-schools">
+        <h4 id="schoolsTitle" data-pt="Escolas compatíveis" data-en="Compatible schools">Escolas compatíveis</h4>
+        <div id="schoolChips"></div>
       </div>
+      <div class="result-tip" id="resultTip"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">br<span>link</span></div>
-      <p data-pt="Feito por um intercambista brasileiro em Montezuma, Iowa. Pra todos os próximos que vierem depois." data-en="Built by a Brazilian exchange student in Montezuma, Iowa. For every student who comes after.">Feito por um intercambista brasileiro em Montezuma, Iowa.<br/>Pra todos os próximos que vierem depois.</p>
-      <div class="footer-note" data-pt='Projeto pessoal de CS. Tem sugestão? <a href="mailto:seuemail@gmail.com">Fala comigo.</a>' data-en='Personal CS project. Have a suggestion? <a href="mailto:seuemail@gmail.com">Reach out.</a>'>Projeto pessoal de CS. Tem sugestão? <a href="mailto:seuemail@gmail.com">Fala comigo.</a></div>
+<hr class="divider">
+
+<!-- ESCOLA -->
+<section id="escola">
+  <div class="section-label" data-pt="Sistema escolar americano" data-en="American school system">Sistema escolar americano</div>
+  <h2 class="section-title" data-pt="Entenda as regras do jogo." data-en="Learn how the game works.">Entenda as regras do jogo.</h2>
+  <p class="section-sub" data-pt="O sistema americano é diferente. Aqui vai o que realmente importa." data-en="The U.S. system is different from what you're used to. Here's what actually matters.">O sistema americano é diferente. Aqui vai o que realmente importa.</p>
+  <div class="steps reveal">
+    <div class="step"><div class="step-num">01</div><div class="step-content">
+      <h3 data-pt="GPA — sua média" data-en="GPA — your average">GPA — sua média</h3>
+      <p data-pt="De 0 a 4.0. Para bolsas em Top 20, mira em 3.7+. AP e Honors podem elevar seu GPA para acima de 4.0 (weighted)." data-en="Ranges from 0 to 4.0. For Top 20 scholarships, aim for 3.7+. AP and Honors classes can push your weighted GPA above 4.0.">De 0 a 4.0. Para bolsas em Top 20, mira em 3.7+. AP e Honors podem elevar seu GPA para acima de 4.0 (weighted).</p>
+      <div class="step-tip" data-pt="💡 Visita seu counselor toda semana — eles existem pra te ajudar, mas você precisa ser proativo." data-en="💡 Visit your counselor every week — they're there to help, but you need to take the initiative.">💡 Visita seu counselor toda semana — eles existem pra te ajudar, mas você precisa ser proativo.</div>
+    </div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-content">
+      <h3 data-pt="SAT — a prova que abre portas" data-en="SAT — the test that opens doors">SAT — a prova que abre portas</h3>
+      <p data-pt="De 400 a 1600. Para Top 20 com bolsa, mira em 1480+. Dá pra fazer várias vezes — as faculdades aceitam a melhor nota (superscore)." data-en="From 400 to 1600. For a Top 20 scholarship, aim for 1480+. You can take it multiple times — colleges take your best score (superscore).">De 400 a 1600. Para Top 20 com bolsa, mira em 1480+. Dá pra fazer várias vezes — as faculdades aceitam a melhor nota (superscore).</p>
+      <div class="step-tip" data-pt="💡 Khan Academy Official SAT Prep é gratuito e feito pelos criadores do SAT. Melhor recurso disponível." data-en="💡 Khan Academy's Official SAT Prep is free and made by the SAT creators. Best resource out there.">💡 Khan Academy Official SAT Prep é gratuito e feito pelos criadores do SAT. Melhor recurso disponível.</div>
+    </div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-content">
+      <h3 data-pt="AP Classes — crédito universitário" data-en="AP Classes — college credit">AP Classes — crédito universitário</h3>
+      <p data-pt="Aulas avançadas com prova em maio. Nota 4 ou 5 pode te dar crédito universitário. Faz pelo menos 4–5 APs relevantes para sua área." data-en="Advanced classes with an exam in May. A 4 or 5 can earn you college credit. Aim for 4–5 APs relevant to your intended major.">Aulas avançadas com prova em maio. Nota 4 ou 5 pode te dar crédito universitário. Faz pelo menos 4–5 APs relevantes para sua área.</p>
+      <div class="step-tip" data-pt="💡 AP Calc BC, AP Physics, AP Language e AP CS são os mais valorizados nas aplicações." data-en="💡 AP Calc BC, AP Physics, AP Language, and AP CS are most valued in college applications.">💡 AP Calc BC, AP Physics, AP Language e AP CS são os mais valorizados nas aplicações.</div>
+    </div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-content">
+      <h3 data-pt="Extracurriculars — quem você é fora da sala" data-en="Extracurriculars — who you are outside class">Extracurriculars — quem você é fora da sala</h3>
+      <p data-pt="Esportes, clubes, projetos — tudo conta. Mas o que importa mesmo é liderança, consistência e impacto real ao longo do tempo." data-en="Sports, clubs, projects — everything counts. But what really matters is leadership, consistency, and real impact over time.">Esportes, clubes, projetos — tudo conta. Mas o que importa mesmo é liderança, consistência e impacto real ao longo do tempo.</p>
+      <div class="step-tip" data-pt="💡 Ser capitão, presidente ou fundador vale muito mais do que ter 10 atividades sem profundidade." data-en="💡 Being captain, president, or founder is worth far more than 10 surface-level activities.">💡 Ser capitão, presidente ou fundador vale muito mais do que ter 10 atividades sem profundidade.</div>
+    </div></div>
+    <div class="step"><div class="step-num">05</div><div class="step-content">
+      <h3 data-pt="Common App — a porta de entrada" data-en="Common App — the gateway">Common App — a porta de entrada</h3>
+      <p data-pt="A maioria das faculdades usa o Common App. Você escreve um personal statement de 650 palavras + suplementos para cada escola. ED1 é decisão vinculante em novembro." data-en="Most colleges use the Common App. You write one 650-word personal statement plus supplements per school. ED1 is a binding decision in November.">A maioria das faculdades usa o Common App. Você escreve um personal statement de 650 palavras + suplementos para cada escola. ED1 é decisão vinculante em novembro.</p>
+      <div class="step-tip" data-pt="💡 Começa o personal statement no verão antes do 12th grade. Mostra quem você é — não só o que você fez." data-en="💡 Start your personal statement the summer before 12th grade. Show who you are — not just what you've done.">💡 Começa o personal statement no verão antes do 12th grade. Mostra quem você é — não só o que você fez.</div>
+    </div></div>
+    <div class="step"><div class="step-num">06</div><div class="step-content">
+      <h3 data-pt="CSS Profile — a chave das bolsas" data-en="CSS Profile — the key to scholarships">CSS Profile — a chave das bolsas</h3>
+      <p data-pt="Formulário financeiro que libera bolsas institucionais. Mais detalhado que o FAFSA e exigido pela maioria das Top 20 para internacionais." data-en="Financial form that unlocks institutional grants. More detailed than FAFSA and required by most Top 20 schools for international students.">Formulário financeiro que libera bolsas institucionais. Mais detalhado que o FAFSA e exigido pela maioria das Top 20 para internacionais.</p>
+      <div class="step-tip" data-pt="💡 WashU, Vanderbilt e Rice são near need-blind para internacionais — sua situação financeira não prejudica suas chances." data-en="💡 WashU, Vanderbilt, and Rice are near need-blind for internationals — your financial situation won't hurt your chances.">💡 WashU, Vanderbilt e Rice são near need-blind para internacionais — sua situação financeira não prejudica suas chances.</div>
+    </div></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BOLSAS -->
+<section id="bolsas">
+  <div class="section-label" data-pt="Financiamento" data-en="Funding">Financiamento</div>
+  <h2 class="section-title" data-pt="Bolsas 100% que existem de verdade." data-en="Real full-ride scholarships.">Bolsas 100% que existem de verdade.</h2>
+  <p class="section-sub" data-pt="As principais oportunidades para estudantes internacionais — com datas reais." data-en="The top opportunities for international students — with real deadlines.">As principais oportunidades para estudantes internacionais — com datas reais.</p>
+  <div class="bolsa-list reveal">
+    <div class="bolsa-item"><div>
+      <div class="bolsa-name">Washington University in St. Louis</div>
+      <div class="bolsa-desc" data-pt="Bolsas generosas via CSS Profile. Cobre até 100% da necessidade. Near need-blind para internacionais." data-en="Generous aid through the CSS Profile. Covers up to 100% of demonstrated need. Near need-blind for internationals.">Bolsas generosas via CSS Profile. Cobre até 100% da necessidade. Near need-blind para internacionais.</div>
+      <div class="bolsa-deadline" data-pt="📅 ED1: 1 nov · RD: 2 jan" data-en="📅 ED1: Nov 1 · RD: Jan 2">📅 ED1: 1 nov · RD: 2 jan</div>
+    </div><span class="bolsa-badge">Top 20</span></div>
+
+    <div class="bolsa-item"><div>
+      <div class="bolsa-name">QuestBridge National College Match</div>
+      <div class="bolsa-desc" data-pt="Full-ride para estudantes de baixa renda. Parceria com 50+ universidades de elite. Cobre mensalidade, moradia e passagem." data-en="Full-ride for low-income students. Partners with 50+ elite universities. Covers tuition, housing, and flights.">Full-ride para estudantes de baixa renda. Parceria com 50+ universidades de elite. Cobre mensalidade, moradia e passagem.</div>
+      <div class="bolsa-deadline" data-pt="📅 Inscrição: setembro · Match: novembro" data-en="📅 Application: September · Match: November">📅 Inscrição: setembro · Match: novembro</div>
+    </div><span class="bolsa-badge">Full Ride</span></div>
+
+    <div class="bolsa-item"><div>
+      <div class="bolsa-name">Vanderbilt — Opportunity Vanderbilt</div>
+      <div class="bolsa-desc" data-pt="Bolsa 100% para quem demonstra necessidade. Uma das melhores universidades dos EUA com comprometimento real com internacionais." data-en="Full scholarship for students who demonstrate financial need. One of the best U.S. universities with a real commitment to internationals.">Bolsa 100% para quem demonstra necessidade. Uma das melhores universidades dos EUA com comprometimento real com internacionais.</div>
+      <div class="bolsa-deadline" data-pt="📅 ED1: 1 nov · RD: 1 jan" data-en="📅 ED1: Nov 1 · RD: Jan 1">📅 ED1: 1 nov · RD: 1 jan</div>
+    </div><span class="bolsa-badge">Top 20</span></div>
+
+    <div class="bolsa-item"><div>
+      <div class="bolsa-name">Rice University — Need-Blind Internacional</div>
+      <div class="bolsa-desc" data-pt="Uma das poucas Top 20 realmente need-blind para internacionais. Sua situação financeira não entra na decisão de admissão." data-en="One of the few truly need-blind Top 20 schools for internationals. Your finances do not affect the admissions decision.">Uma das poucas Top 20 realmente need-blind para internacionais. Sua situação financeira não entra na decisão de admissão.</div>
+      <div class="bolsa-deadline" data-pt="📅 ED1: 1 nov · RD: 1 jan" data-en="📅 ED1: Nov 1 · RD: Jan 1">📅 ED1: 1 nov · RD: 1 jan</div>
+    </div><span class="bolsa-badge">Need-Blind</span></div>
+
+    <div class="bolsa-item"><div>
+      <div class="bolsa-name">Grinnell College</div>
+      <div class="bolsa-desc" data-pt="Liberal arts com endowment enorme. Bolsas de até $65k/ano para internacionais. Menos concorrência que Top 20 com qualidade similar." data-en="Liberal arts school with a huge endowment. Aid up to $65k/year for internationals. Less competition than Top 20 with similar quality.">Liberal arts com endowment enorme. Bolsas de até $65k/ano para internacionais. Menos concorrência que Top 20 com qualidade similar.</div>
+      <div class="bolsa-deadline" data-pt="📅 ED1: 15 nov · RD: 1 jan" data-en="📅 ED1: Nov 15 · RD: Jan 1">📅 ED1: 15 nov · RD: 1 jan</div>
+    </div><span class="bolsa-badge">Liberal Arts</span></div>
+
+    <div class="bolsa-item"><div>
+      <div class="bolsa-name">Posse Foundation</div>
+      <div class="bolsa-desc" data-pt="Seleciona grupos de 10 estudantes de cidades específicas. Full-ride + rede de apoio. Veja se sua cidade está na lista." data-en="Selects groups of 10 students from specific cities. Full-ride + support network. Check if your city is on the list.">Seleciona grupos de 10 estudantes de cidades específicas. Full-ride + rede de apoio. Veja se sua cidade está na lista.</div>
+      <div class="bolsa-deadline" data-pt="📅 Indicação pela escola: setembro/outubro" data-en="📅 School nomination: September/October">📅 Indicação pela escola: setembro/outubro</div>
+    </div><span class="bolsa-badge">Full Ride</span></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- BUROCRACIA -->
+<section id="burocracia">
+  <div class="section-label" data-pt="Documentos" data-en="Documents">Documentos</div>
+  <h2 class="section-title" data-pt="Papelada, desmistificada." data-en="Paperwork, simplified.">Papelada, desmistificada.</h2>
+  <p class="section-sub" data-pt="O que você vai precisar — para a escola, para viver nos EUA e para aplicar." data-en="What you'll need — for school, for life in the U.S., and for your college applications.">O que você vai precisar — para a escola, para viver nos EUA e para aplicar.</p>
+  <div class="doc-grid reveal">
+    <div class="doc-card"><div class="doc-num">01</div><h3 data-pt="Visto J-1 ou F-1" data-en="J-1 or F-1 Visa">Visto J-1 ou F-1</h3><p data-pt="Guarda o DS-2019 em local seguro. Você vai precisar pra qualquer ato oficial nos EUA." data-en="Keep your DS-2019 somewhere safe. You'll need it for any official act in the U.S.">Guarda o DS-2019 em local seguro. Você vai precisar pra qualquer ato oficial nos EUA.</p></div>
+    <div class="doc-card"><div class="doc-num">02</div><h3 data-pt="Social Security Number" data-en="Social Security Number">Social Security Number</h3><p data-pt="Necessário para trabalhar com autorização. Consulta seu coordinator antes — leva 2–4 semanas." data-en="Required to work with authorization. Ask your coordinator first — it takes 2–4 weeks.">Necessário para trabalhar com autorização. Consulta seu coordinator antes — leva 2–4 semanas.</p></div>
+    <div class="doc-card"><div class="doc-num">03</div><h3 data-pt="Conta bancária" data-en="Bank account">Conta bancária</h3><p data-pt="Abre o quanto antes. Precisa de passaporte + endereço americano. Chase Student tem menos taxas." data-en="Open one ASAP. You need a passport + U.S. address. Chase Student has fewer fees.">Abre o quanto antes. Precisa de passaporte + endereço americano. Chase Student tem menos taxas.</p></div>
+    <div class="doc-card"><div class="doc-num">04</div><h3 data-pt="Seguro saúde" data-en="Health insurance">Seguro saúde</h3><p data-pt="Saúde nos EUA é cara. Confirma que tá ativo. Urgent Care (~$150) é muito mais barato que ER ($5k+)." data-en="Healthcare in the U.S. is expensive. Confirm you're covered. Urgent Care (~$150) is way cheaper than the ER ($5k+).">Saúde nos EUA é cara. Confirma que tá ativo. Urgent Care (~$150) é muito mais barato que ER ($5k+).</p></div>
+    <div class="doc-card"><div class="doc-num">05</div><h3 data-pt="State ID / Carteira" data-en="State ID / Driver's License">State ID / Carteira</h3><p data-pt="Com 16+ anos dá pra tirar em Iowa. Vai ao DMV com passaporte, visto e comprovante de endereço." data-en="If you're 16+, you can get one in Iowa. Go to the DMV with your passport, visa, and proof of address.">Com 16+ anos dá pra tirar em Iowa. Vai ao DMV com passaporte, visto e comprovante de endereço.</p></div>
+    <div class="doc-card"><div class="doc-num">06</div><h3 data-pt="ITIN (para CSS Profile)" data-en="ITIN (for CSS Profile)">ITIN (para CSS Profile)</h3><p data-pt="Você pode precisar de um ITIN para preencher o CSS Profile. A faculdade ou o coordinator orientam." data-en="You may need an ITIN to complete the CSS Profile. The college or your coordinator can guide you.">Você pode precisar de um ITIN para preencher o CSS Profile. A faculdade ou o coordinator orientam.</p></div>
+    <div class="doc-card"><div class="doc-num">07</div><h3 data-pt="Transcrições do Brasil" data-en="Brazilian transcripts">Transcrições do Brasil</h3><p data-pt="Suas notas do Brasil precisam ser traduzidas por um serviço certificado (WES). Começa cedo — leva semanas." data-en="Your Brazilian grades need to be translated by a certified service (WES). Start early — it takes weeks.">Suas notas do Brasil precisam ser traduzidas por um serviço certificado (WES). Começa cedo — leva semanas.</p></div>
+    <div class="doc-card"><div class="doc-num">08</div><h3 data-pt="Cartas de recomendação" data-en="Letters of recommendation">Cartas de recomendação</h3><p data-pt="Pede para 2–3 professores que te conhecem de verdade. Pelo menos 3 meses antes dos deadlines." data-en="Ask 2–3 teachers who genuinely know you. At least 3 months before your deadlines.">Pede para 2–3 professores que te conhecem de verdade. Pelo menos 3 meses antes dos deadlines.</p></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CULTURA -->
+<section id="cultura">
+  <div class="section-label" data-pt="Adaptação" data-en="Adaptation">Adaptação</div>
+  <h2 class="section-title" data-pt="Choque cultural é real.<br>E tá tudo bem." data-en="Culture shock is real.<br>And that's okay.">Choque cultural é real.<br>E tá tudo bem.</h2>
+  <p class="section-sub" data-pt="Dicas pra se adaptar — e usar sua diferença como vantagem." data-en="Tips to adapt — and turn your differences into an advantage.">Dicas pra se adaptar — e usar sua diferença como vantagem.</p>
+  <div class="cultura-grid reveal">
+    <div class="cultura-card"><div class="cultura-emoji">🗣️</div><h3 data-pt="Inglês travou? Normal." data-en="English frozen up? Normal.">Inglês travou? Normal.</h3><p data-pt="Nos primeiros meses seu inglês parece pior do que era. Fala mesmo errando — é a única forma de melhorar." data-en="Your English might feel worse at first. Keep speaking even when you make mistakes — it's the only way to improve.">Nos primeiros meses seu inglês parece pior do que era. Fala mesmo errando — é a única forma de melhorar.</p></div>
+    <div class="cultura-card"><div class="cultura-emoji">🤝</div><h3 data-pt='"How are you?" não é pergunta real' data-en='"How are you?" isn\'t a real question'>"How are you?" não é pergunta real</h3><p data-pt='Resposta esperada: "good, you?". É saudação, não pergunta. Brasileiros costumam responder demais e isso confunde.' data-en='Expected answer: "good, you?" — it\'s just a greeting. Brazilians tend to over-answer and it confuses people.'>Resposta esperada: "good, you?". É saudação, não pergunta. Brasileiros costumam responder demais e isso confunde.</p></div>
+    <div class="cultura-card"><div class="cultura-emoji">⏰</div><h3 data-pt="Pontualidade é levada a sério" data-en="Punctuality is taken seriously">Pontualidade é levada a sério</h3><p data-pt="Treino às 15h? Chega às 14h50. Atraso impacta sua reputação com coach, professores e colegas." data-en="Practice at 3pm? Arrive at 2:50. Being late affects your reputation with coaches, teachers, and teammates.">Treino às 15h? Chega às 14h50. Atraso impacta sua reputação com coach, professores e colegas.</p></div>
+    <div class="cultura-card"><div class="cultura-emoji">🌟</div><h3 data-pt="Seu sotaque é um superpoder" data-en="Your accent is a superpower">Seu sotaque é um superpoder</h3><p data-pt="Americanos acham o sotaque brasileiro fascinante. Ser diferente é vantagem — inclusive nas college essays." data-en="Americans find the Brazilian accent fascinating. Being different is an advantage — especially in your college essays.">Americanos acham o sotaque brasileiro fascinante. Ser diferente é vantagem — inclusive nas college essays.</p></div>
+    <div class="cultura-card"><div class="cultura-emoji">📱</div><h3 data-pt="Equilíbrio Brasil/EUA" data-en="Balance Brazil/U.S.">Equilíbrio Brasil/EUA</h3><p data-pt="Falar com a família é saudável. Mas não deixa virar fuga. Conectar com quem tá ao redor enriquece tudo." data-en="Talking to family is healthy. But don't let it become an escape. Connecting with people around you enriches everything.">Falar com a família é saudável. Mas não deixa virar fuga. Conectar com quem tá ao redor enriquece tudo.</p></div>
+    <div class="cultura-card"><div class="cultura-emoji">🏆</div><h3 data-pt="Networking começa cedo" data-en="Networking starts early">Networking começa cedo</h3><p data-pt="Cada professor e coach pode virar uma carta de recomendação. Constrói relações genuínas — americanos percebem a diferença." data-en="Every teacher and coach can become a letter of recommendation. Build genuine relationships — Americans notice the difference.">Cada professor e coach pode virar uma carta de recomendação. Constrói relações genuínas — americanos percebem a diferença.</p></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHECKLIST -->
+<section id="checklist">
+  <div class="section-label" data-pt="Progresso" data-en="Progress">Progresso</div>
+  <h2 class="section-title" data-pt="Checklist completo." data-en="Full checklist.">Checklist completo.</h2>
+  <p class="section-sub" data-pt="Marca o que você já fez. Fica salvo automaticamente." data-en="Check off what you've done. Saved automatically in your browser.">Marca o que você já fez. Fica salvo automaticamente.</p>
+  <div class="checklist-wrapper reveal">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 de 22 concluídos</div>
+    <div class="check-section">
+      <h3 data-pt="🏁 Primeiros dias" data-en="🏁 First days">🏁 Primeiros dias</h3>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Guardei passaporte e DS-2019 em local seguro" data-en="Stored passport and DS-2019 somewhere safe">Guardei passaporte e DS-2019 em local seguro</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Confirmei que meu seguro saúde está ativo" data-en="Confirmed my health insurance is active">Confirmei que meu seguro saúde está ativo</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Abri uma conta bancária americana" data-en="Opened a U.S. bank account">Abri uma conta bancária americana</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Entrei em contato com meu coordinator" data-en="Got in touch with my coordinator">Entrei em contato com meu coordinator</span></div>
     </div>
-  </footer>
+    <div class="check-section">
+      <h3 data-pt="🏫 Escola e notas" data-en="🏫 School and grades">🏫 Escola e notas</h3>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Fui visitar o counselor escolar" data-en="Visited the school counselor">Fui visitar o counselor escolar</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Entendi como funciona o GPA da minha escola" data-en="Understood how GPA works at my school">Entendi como funciona o GPA da minha escola</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Me inscrevi em pelo menos um AP course" data-en="Enrolled in at least one AP course">Me inscrevi em pelo menos um AP course</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Criei conta no Khan Academy para o SAT" data-en="Created a Khan Academy account for SAT prep">Criei conta no Khan Academy para o SAT</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Sei as próximas datas do SAT/PSAT" data-en="Know the next SAT/PSAT dates">Sei as próximas datas do SAT/PSAT</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Pedi cartas de recomendação com antecedência" data-en="Requested letters of recommendation early">Pedi cartas de recomendação com antecedência</span></div>
+    </div>
+    <div class="check-section">
+      <h3 data-pt="🏆 Extracurriculars" data-en="🏆 Extracurriculars">🏆 Extracurriculars</h3>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Entrei em um esporte ou clube com continuidade" data-en="Joined a sport or club consistently">Entrei em um esporte ou clube com continuidade</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Tenho um projeto pessoal ou iniciativa de impacto" data-en="Have a personal project or initiative with impact">Tenho um projeto pessoal ou iniciativa de impacto</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Tenho ou busquei posição de liderança" data-en="Have or sought a leadership position">Tenho ou busquei posição de liderança</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Documentei minhas atividades para o Common App" data-en="Documented my activities for Common App">Documentei minhas atividades para o Common App</span></div>
+    </div>
+    <div class="check-section">
+      <h3 data-pt="📝 College Application" data-en="📝 College Application">📝 College Application</h3>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Criei conta no Common App" data-en="Created a Common App account">Criei conta no Common App</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Comecei a rascunhar o personal statement" data-en="Started drafting my personal statement">Comecei a rascunhar o personal statement</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Pesquisei o CSS Profile" data-en="Researched the CSS Profile">Pesquisei o CSS Profile</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Defini lista de escolas (reach, match, safety)" data-en="Defined my school list (reach, match, safety)">Defini lista de escolas (reach, match, safety)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Sei as datas de ED1 das minhas escolas alvo" data-en="Know my target schools' ED1 deadlines">Sei as datas de ED1 das minhas escolas alvo</span></div>
+    </div>
+    <div class="check-section">
+      <h3 data-pt="🌎 Adaptação" data-en="🌎 Adaptation">🌎 Adaptação</h3>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Me apresentei para pelo menos 3 colegas" data-en="Introduced myself to at least 3 classmates">Me apresentei para pelo menos 3 colegas</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Fui a um evento escolar (jogo, festa, clube)" data-en="Attended a school event (game, party, club)">Fui a um evento escolar (jogo, festa, clube)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text" data-pt="Fiz algo desconfortável que me fez crescer" data-en="Did something uncomfortable that made me grow">Fiz algo desconfortável que me fez crescer</span></div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    let currentLang = 'pt';
+<hr class="divider">
 
-    function toggleLang() {
-      currentLang = currentLang === 'pt' ? 'en' : 'pt';
-      document.getElementById('langBtn').textContent = currentLang === 'pt' ? 'EN' : 'PT';
-      document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
-      document.querySelectorAll('[data-pt]').forEach(el => {
-        const text = el.getAttribute('data-' + currentLang);
-        if (text) {
-          if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') el.value = text;
-          else el.innerHTML = text;
-        }
-      });
-      updateProgress();
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-label" data-pt="Fale comigo" data-en="Get in touch">Fale comigo</div>
+  <h2 class="section-title" data-pt="Tem dúvida? Manda mensagem." data-en="Have a question? Send a message.">Tem dúvida? Manda mensagem.</h2>
+  <div class="contact-wrapper reveal">
+    <div class="contact-info">
+      <h3 data-pt="Esse projeto é feito por um intercambista brasileiro em Iowa." data-en="This project is built by a Brazilian exchange student in Iowa.">Esse projeto é feito por um intercambista brasileiro em Iowa.</h3>
+      <p data-pt="Sugestão, conteúdo pra contribuir, ou só quer bater um papo sobre o processo — manda mensagem. Respondo a todos." data-en="Have a suggestion, content to contribute, or just want to talk about the process — send a message. I reply to everyone.">Sugestão, conteúdo pra contribuir, ou só quer bater um papo sobre o processo — manda mensagem. Respondo a todos.</p>
+      <div class="contact-detail"><span>📧</span><a href="mailto:cfba005@gmail.com">cfba005@gmail.com</a></div>
+      <div class="contact-detail" style="margin-top:.75rem;"><span>📍</span><span>Iowa, United States</span></div>
+    </div>
+    <div>
+      <div id="formSuccess" class="form-success">
+        <div class="check-icon">✅</div>
+        <strong id="successTitle" data-pt="Mensagem enviada!" data-en="Message sent!">Mensagem enviada!</strong>
+        <p style="margin-top:.5rem;color:var(--muted);font-size:.88rem;" data-pt="Obrigado pelo contato. Responderei em breve." data-en="Thanks for reaching out. I'll reply soon.">Obrigado pelo contato. Responderei em breve.</p>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="enviarForm(event)">
+        <div class="form-group">
+          <label data-pt="Seu nome" data-en="Your name">Seu nome</label>
+          <input type="text" id="fNome" placeholder="João Silva" required>
+        </div>
+        <div class="form-group">
+          <label data-pt="Seu email" data-en="Your email">Seu email</label>
+          <input type="email" id="fEmail" placeholder="joao@email.com" required>
+        </div>
+        <div class="form-group">
+          <label data-pt="Assunto" data-en="Subject">Assunto</label>
+          <select id="fAssunto" required>
+            <option value=""  data-pt="Selecione..." data-en="Select...">Selecione...</option>
+            <option data-pt="Dúvida sobre o processo" data-en="Question about the process">Dúvida sobre o processo</option>
+            <option data-pt="Informação sobre bolsas" data-en="Scholarship information">Informação sobre bolsas</option>
+            <option data-pt="Quero contribuir com conteúdo" data-en="I want to contribute content">Quero contribuir com conteúdo</option>
+            <option data-pt="Sugestão ou erro no site" data-en="Suggestion or site error">Sugestão ou erro no site</option>
+            <option data-pt="Outro" data-en="Other">Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-pt="Mensagem" data-en="Message">Mensagem</label>
+          <textarea id="fMsg" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit" data-pt="Enviar mensagem →" data-en="Send message →">Enviar mensagem →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>BrLink</strong> —
+    <span data-pt="Feito por um intercambista brasileiro em Montezuma, Iowa." data-en="Made by a Brazilian exchange student in Montezuma, Iowa.">Feito por um intercambista brasileiro em Montezuma, Iowa.</span><br>
+    <span data-pt="Para todos os próximos que vierem depois." data-en="For everyone who comes after.">Para todos os próximos que vierem depois.</span>
+    &nbsp;·&nbsp;<a href="mailto:cfba005@gmail.com">cfba005@gmail.com</a>
+  </p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  // ---- LANG ----
+  let currentLang = localStorage.getItem('brlink-lang') || 'pt';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('brlink-lang', lang);
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+
+    document.querySelectorAll('[data-pt]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (!val) return;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') { el.placeholder = val; }
+      else if (el.tagName === 'OPTION') { el.textContent = val; }
+      else { el.innerHTML = val; }
+    });
+
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    document.title = lang === 'pt'
+      ? 'BrLink — College Prep para Brasileiros nos EUA'
+      : 'BrLink — College Prep for Brazilians in the U.S.';
+
+    updateProgress();
+  }
+
+  // ---- HAMBURGER ----
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ---- SCROLL REVEAL ----
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ---- CALCULATOR ----
+  function calcular() {
+    const gpa     = parseFloat(document.getElementById('gpa').value);
+    const sat     = parseInt(document.getElementById('sat').value);
+    const extra   = parseInt(document.getElementById('extra').value) || 0;
+    const target  = document.getElementById('target').value;
+    const projeto = parseInt(document.getElementById('projeto').value);
+    const english = parseInt(document.getElementById('english').value);
+
+    if (!gpa || !sat || !extra || !target) {
+      alert(currentLang === 'pt' ? 'Preencha todos os campos.' : 'Please fill in all fields.');
+      return;
     }
 
-    const STORAGE_KEY = 'brlink_checklist_v1';
-    const TOTAL = 15;
+    let score = 0;
+    score += Math.min(30, (gpa / 4.0) * 30);
+    score += Math.min(30, ((sat - 400) / 1200) * 30);
+    score += extra * 5;
+    score += projeto * 5;
+    score += english * 2.5;
+    score = Math.round(Math.min(100, score));
 
-    function loadChecklist() {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      document.querySelectorAll('.check-item input').forEach(cb => { if (saved[cb.dataset.id]) cb.checked = true; });
-      updateProgress();
+    const idx = score >= 85 ? 0 : score >= 70 ? 1 : score >= 55 ? 2 : 3;
+
+    const content = {
+      pt: {
+        labels: ['🔥 Perfil altamente competitivo', '✅ Perfil competitivo', '📈 Perfil em desenvolvimento', '🛠️ Perfil em construção'],
+        tips: [
+          'Perfil forte para Top 20. O que diferencia agora são as essays — seja autêntico, não genérico. Considera ED1 para aumentar as chances.',
+          'Competitivo para Top 30–50. Melhora o SAT ou adiciona um extracurricular de impacto antes de aplicar.',
+          'Bom potencial! Foca em SAT acima de 1400, GPA 3.7+ e liderança em pelo menos uma atividade.',
+          'Tempo é seu maior aliado. Foco no GPA agora, SAT com constância e extracurriculars com continuidade.'
+        ],
+        schools: 'Escolas compatíveis'
+      },
+      en: {
+        labels: ['🔥 Highly competitive profile', '✅ Competitive profile', '📈 Developing profile', '🛠️ Building profile'],
+        tips: [
+          'Strong profile for Top 20. What sets you apart now are the essays — be authentic, not generic. Consider ED1 to boost your chances.',
+          'Competitive for Top 30–50. Improve your SAT or add a high-impact extracurricular before applying.',
+          'Good potential! Focus on SAT above 1400, GPA 3.7+, and leadership in at least one activity.',
+          'Time is your biggest asset. Focus on GPA now, study for SAT consistently, and build extracurriculars with continuity.'
+        ],
+        schools: 'Compatible schools'
+      }
+    };
+
+    const lang = currentLang === 'en' ? 'en' : 'pt';
+    let chips = '';
+    if (target === 't20') {
+      chips = score >= 85
+        ? `<span class="school-chip chip-reach">WashU</span><span class="school-chip chip-reach">Rice</span><span class="school-chip chip-reach">Vanderbilt</span><span class="school-chip chip-match">Tulane</span><span class="school-chip chip-safety">Rochester</span>`
+        : score >= 70
+        ? `<span class="school-chip chip-reach">WashU</span><span class="school-chip chip-match">Tulane</span><span class="school-chip chip-match">Rochester</span><span class="school-chip chip-safety">Fordham</span>`
+        : `<span class="school-chip chip-match">Rochester</span><span class="school-chip chip-match">Fordham</span><span class="school-chip chip-safety">Drexel</span>`;
+    } else if (target === 't50') {
+      chips = `<span class="school-chip chip-reach">Tulane</span><span class="school-chip chip-match">Rochester</span><span class="school-chip chip-match">Pepperdine</span><span class="school-chip chip-safety">Loyola</span>`;
+    } else {
+      chips = `<span class="school-chip chip-reach">Grinnell</span><span class="school-chip chip-match">Denison</span><span class="school-chip chip-match">Wooster</span><span class="school-chip chip-safety">Kalamazoo</span>`;
     }
 
-    function saveChecklist() {
-      const state = {};
-      document.querySelectorAll('.check-item input').forEach(cb => { state[cb.dataset.id] = cb.checked; });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    }
+    document.getElementById('resultScore').textContent = score + '/100';
+    document.getElementById('resultLabel').textContent  = content[lang].labels[idx];
+    document.getElementById('schoolsTitle').textContent = content[lang].schools;
+    document.getElementById('schoolChips').innerHTML    = chips;
+    document.getElementById('resultTip').textContent    = content[lang].tips[idx];
 
-    function updateProgress() {
-      const checked = document.querySelectorAll('.check-item input:checked').length;
-      document.getElementById('progressBar').style.width = Math.round((checked/TOTAL)*100) + '%';
-      document.getElementById('progressText').textContent = currentLang === 'pt'
-        ? checked + ' de ' + TOTAL + ' concluídos'
-        : checked + ' of ' + TOTAL + ' completed';
-    }
+    const result = document.getElementById('calcResult');
+    result.classList.add('show');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 
-    document.querySelectorAll('.check-item input').forEach(cb => cb.addEventListener('change', () => { saveChecklist(); updateProgress(); }));
-    loadChecklist();
+  // ---- CHECKLIST ----
+  function updateProgress() {
+    const items = document.querySelectorAll('.check-item');
+    const done  = document.querySelectorAll('.check-item.done').length;
+    const pct   = Math.round((done / items.length) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = currentLang === 'en'
+      ? `${done} of ${items.length} completed`
+      : `${done} de ${items.length} concluídos`;
+    localStorage.setItem('brlink-checklist', JSON.stringify(Array.from(items).map(i => i.classList.contains('done'))));
+  }
 
-    const observer = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    }), { threshold: 0.1 });
-    document.querySelectorAll('.card, .buro-item, .cultura-card, .check-item').forEach(el => { el.classList.add('fade-in'); observer.observe(el); });
+  function toggleCheck(el) { el.classList.toggle('done'); updateProgress(); }
 
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? '#fff' : ''; });
-    }, { passive: true });
-  </script>
+  // ---- FORM ----
+  function enviarForm(e) {
+    e.preventDefault();
+    const nome    = document.getElementById('fNome').value;
+    const email   = document.getElementById('fEmail').value;
+    const assunto = document.getElementById('fAssunto').value;
+    const msg     = document.getElementById('fMsg').value;
+    const body    = encodeURIComponent(`Name: ${nome}\nEmail: ${email}\nSubject: ${assunto}\n\n${msg}`);
+    window.location.href = `mailto:cfba005@gmail.com?subject=${encodeURIComponent('[BrLink] ' + assunto)}&body=${body}`;
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+
+  // ---- INIT ----
+  window.addEventListener('DOMContentLoaded', () => {
+    setLang(currentLang);
+    const saved = JSON.parse(localStorage.getItem('brlink-checklist') || '[]');
+    document.querySelectorAll('.check-item').forEach((el, i) => { if (saved[i]) el.classList.add('done'); });
+    updateProgress();
+  });
+</script>
 </body>
 </html>
